@@ -108,56 +108,73 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        APIClient.getAPI().getUsersByID(2917).enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                User user = response.body();
-                mTextView.setText(user.name);
-                progressBar.setVisibility((View.INVISIBLE));
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                mTextView.setText("Error:" + t.getMessage());
-                progressBar.setVisibility((View.INVISIBLE));
-            }
-        });
-
-//        User user = new User();
-//        user.id = 2917;
-//        user.name = "Trinh Van Quyet";
-//        user.email = "quyet@test.com";
-//        user.gender = "male";
-//        user.status = "Active";
-//        System.out.println(user.id);
-//
-//        APIClient.getAPI().addUser(user).enqueue(new Callback<User>() {
+//        APIClient.getAPI().getUsersByID(2327).enqueue(new Callback<User>() {
 //            @Override
 //            public void onResponse(Call<User> call, Response<User> response) {
 //                User user = response.body();
-//                System.out.println(user);
-//                mTextView.setText("User ID: " + user.id);
+//                mTextView.setText(user.name);
+//                progressBar.setVisibility((View.INVISIBLE));
 //            }
 //
 //            @Override
 //            public void onFailure(Call<User> call, Throwable t) {
 //                mTextView.setText("Error:" + t.getMessage());
+//                progressBar.setVisibility((View.INVISIBLE));
 //            }
 //        });
 
-        APIClient.getAPI().deleteUser(1235).enqueue(new Callback<Void>() {
+//            User user = new User();
+//            user.id = 3453;
+//            user.name = "Trinh Van Quyet";
+//            user.email = "quyet@test.com";
+//            user.gender = "male";
+//            user.status = "Active";
+//            System.out.println(user.id);
+//
+//            APIClient.getAPI().addUser(user).enqueue(new Callback<User>() {
+//                @Override
+//                public void onResponse(Call<User> call, Response<User> response) {
+////                    User user = response.body();
+//                    System.out.println(user);
+//                    mTextView.setText("User ID: " + user.id);
+//                }
+//
+//                @Override
+//                public void onFailure(Call<User> call, Throwable t) {
+//                    mTextView.setText("Error:" + t.getMessage());
+//                }
+//            });
+
+
+//        APIClient.getAPI().deleteUser(2327).enqueue(new Callback<Void>() {
+//            @Override
+//            public void onResponse(Call<Void> call, Response<Void> response) {
+//                //Toast.makeText(MainActivity.this, response.code()+"t", Toast.LENGTH_LONG).show();
+//                Toast.makeText(MainActivity.this, "Delete successfully", Toast.LENGTH_LONG).show();
+//                finish();
+//                startActivity(getIntent());
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Void> call, Throwable t) {
+//                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+//            }
+//        });
+
+        User user = new User("Trinh Van Quyet", "quyet676767@test.com", "male", "Active");
+
+        APIClient.getAPI().updateUser(2323, user).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                //Toast.makeText(MainActivity.this, response.code()+"t", Toast.LENGTH_LONG).show();
-                Toast.makeText(MainActivity.this, "Delete successfully", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Updated", Toast.LENGTH_LONG).show();
                 finish();
                 startActivity(getIntent());
-
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+
             }
         });
     }

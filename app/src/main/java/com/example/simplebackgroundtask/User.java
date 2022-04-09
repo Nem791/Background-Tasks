@@ -6,4 +6,11 @@ public class User {
     public String email;
     public String gender;
     public String status;
+
+    public User(String name, String email, String gender, String status) {
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
+        this.status = status;
+    }
 }
